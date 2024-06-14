@@ -1,0 +1,42 @@
+# This is an example webapp.io configuration for React and Django
+FROM vm/ubuntu:22.04
+
+# To note: Layerfiles create entire VMs, *not* containers!
+
+RUN curl -fSsL https://deb.nodesource.com/setup_14.x | bash && \
+    apt-get update && \
+    apt-get install -y nodejs python3-venv python3-pip make gcc build-essential && \
+    rm -f /etc/apt/sources.list.d/nodesource.list
+
+# node is a memory hog
+MEMORY 2G
+ENV NODE_OPTIONS=--max-old-space-size=8192
+
+# Copy the backend code into the container
+COPY backend/ /app/backend/
+
+# Install backend dependencies
+WORKDIR /app/backend/
+RUN python3 -m venv venv
+
+# Activate the virtual environment
+RUN source /app/backend/venv/bin/activate
+
+# Install backend dependencies
+RUN pip3 install --upgrade pip
+RUN pip3 install -r requirements.txt
+
+# Start the Django backend server
+RUN BACKGROUND python3 manage.py runserver 0.0.0.0:8000
+
+# Copy the frontend code into the container
+COPY frontend/ /app/frontend/
+
+# Install frontend dependencies and build the React app
+WORKDIR /app/frontend/
+RUN npm install || true
+RUN BACKGROUND npm start || python3 -m http.server 3000
+
+# Create a unique link to share the app in this runner.
+# Every time someone clicks the link, we'll wake up this staging server.
+EXPOSE WEBSITE http://localhost:3000
