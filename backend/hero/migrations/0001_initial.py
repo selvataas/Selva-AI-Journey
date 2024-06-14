@@ -4,25 +4,31 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Hero',
+            name="Hero",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=200)),
-                ('subtitle', models.CharField(max_length=300)),
-                ('description', models.CharField(max_length=500)),
-                ('image', models.ImageField(upload_to='images')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=200)),
+                ("subtitle", models.CharField(max_length=300)),
+                ("description", models.CharField(max_length=500)),
+                ("image", models.ImageField(upload_to="images")),
             ],
             options={
-                'verbose_name': 'Hero',
-                'verbose_name_plural': 'Hero',
+                "verbose_name": "Hero",
+                "verbose_name_plural": "Hero",
             },
         ),
     ]

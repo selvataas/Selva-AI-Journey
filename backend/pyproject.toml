@@ -1,0 +1,10 @@
+target-version = "py312"
+
+[tool.black]
+target-version = ["py312"]
+
+
+[tool.ruff]
+# Enable Pyflakes `E` and `F` codes by default.
+select = ["E", "F"]
+ignore = ["E501", "E741"]
