@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "selva-ai-project",
+    "development": "selva-ai-project"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
+}
