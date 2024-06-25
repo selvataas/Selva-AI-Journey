@@ -39,10 +39,10 @@ deactivate nondestructive
 if [ "${OSTYPE:-}" = "cygwin" ] || [ "${OSTYPE:-}" = "msys" ] ; then
     # transform D:\path\to\venv to /d/path/to/venv on MSYS
     # and to /cygdrive/d/path/to/venv on Cygwin
-    export VIRTUAL_ENV=$(cygpath "C:\Users\Topfiyt3\Desktop\eotobi_dev.github.io-main\eotobi_dev.github.io-main\backend\venv")
+    export VIRTUAL_ENV=$(cygpath "C:\Users\Topfiyt3\Desktop\selva_ai_journey\selva_ai_journey\backend\venv")
 else
     # use the path as-is
-    export VIRTUAL_ENV="C:\Users\Topfiyt3\Desktop\eotobi_dev.github.io-main\eotobi_dev.github.io-main\backend\venv"
+    export VIRTUAL_ENV="C:\Users\Topfiyt3\Desktop\selva_ai_journey\selva_ai_journey\backend\venv"
 fi
 
 _OLD_VIRTUAL_PATH="$PATH"

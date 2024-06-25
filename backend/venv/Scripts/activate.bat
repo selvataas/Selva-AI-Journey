@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\Topfiyt3\Desktop\eotobi_dev.github.io-main\eotobi_dev.github.io-main\backend\venv
+set VIRTUAL_ENV=C:\Users\Topfiyt3\Desktop\selva_ai_journey\selva_ai_journey\backend\venv
 
 if not defined PROMPT set PROMPT=$P$G
 
@@ -25,7 +25,7 @@ if defined _OLD_VIRTUAL_PATH set PATH=%_OLD_VIRTUAL_PATH%
 if not defined _OLD_VIRTUAL_PATH set _OLD_VIRTUAL_PATH=%PATH%
 
 set PATH=%VIRTUAL_ENV%\Scripts;%PATH%
-set VIRTUAL_ENV_PROMPT=(venv)
+set VIRTUAL_ENV_PROMPT=(venv) 
 
 :END
 if defined _OLD_CODEPAGE (

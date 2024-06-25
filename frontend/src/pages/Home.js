@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <div id="home">
       <Hero />
-      <About />
+      <About  />
       <Projects />
       <Technologies />
       <Testimonials />
@@ -21,3 +21,7 @@ const Home = () => {
 };
 
 export default Home;
+
+
+
+
