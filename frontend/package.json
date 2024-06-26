@@ -1,7 +1,7 @@
 {
-  "name": "freelance-developer-website",
+  "name": "enthusiastic person - website",
   "version": "1.0.0",
-  "description": "Freelance Developer Website",
+  "description": "Enthusiastic Developer Website",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -45,5 +45,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
   }
 }

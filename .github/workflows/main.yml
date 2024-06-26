@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Deploy to Firebase
 
 on:
   push:
@@ -10,18 +10,56 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      - name: Install dependencies
-        run: npm install
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
 
-      - name: Build project
-        run: npm run build
+    - name: Install dependencies
+      run: npm install
 
-  deploy:
-    runs-on: ubuntu-latest
+    - name: Firebase CLI
+      uses: w9jds/firebase-action@v1.5.0
+      with:
+        args: firebase functions:config:set location=us-central1
+      env:
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
-    steps:
-      - name: Deploy to Firebase
-        run: firebase deploy --token ${{ secrets.FIREBASE_TOKEN }}
+    - name: Deploy to Firebase
+      uses: w9jds/firebase-action@v1.5.0
+      with:
+        args: deploy --only functions
+      env:
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+
+
+# name: Build and Deploy
+
+# on:
+#   push:
+#     branches:
+#       - main
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v2
+
+#       - name: Install dependencies
+#         run: npm install
+
+#       - name: Build project
+#         run: npm run build
+
+#   deploy:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Deploy to Firebase
+        # run: firebase deploy --token
